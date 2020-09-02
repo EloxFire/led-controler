@@ -17,14 +17,12 @@ disconnectButton.addEventListener('click', function(){
 
 function connect(){
   console.log("Connecting...");
-  navigator.bluetooth.requestDevice({
-    filter: [{
-      name: "HC-05",
-    }],
-  }).then(function(device){
-    console.log("Name : " + device.name);
-  }).catch(function(error){
-    console.log(error);
+  navigator.bluetooth.requestDevice(options).then(function(device) {
+    console.log('Name: ' + device.name);
+    // Do something with the device.
+  })
+  .catch(function(error) {
+    console.log("Something went wrong. " + error);
   });
 }
 
